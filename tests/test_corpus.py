@@ -1,0 +1,34 @@
+from app.corpus import Corpus
+
+
+def test_when_requesting_anagram_and_no_words_are_in_corpus_then_get_back_empty_list():
+    assert [] == Corpus().get_anagrams('read')
+
+
+def test_when_requesting_anagram_of_read_then_get_dear():
+    words = ['read', 'dear']
+    corpus = Corpus()
+    corpus.add_words(words)
+    assert ['dear'] == corpus.get_anagrams('read')
+
+
+def test_when_requesting_anagram_of_dear_then_get_read():
+    words = ['read', 'dear']
+    corpus = Corpus()
+    corpus.add_words(words)
+    assert ['read'] == corpus.get_anagrams('dear')
+
+
+def test_when_word_gets_deleted_then_remove_it_from_data_store():
+    words = ['read', 'dear']
+    corpus = Corpus()
+    corpus.add_words(words)
+    corpus.remove_word('read')
+    assert [] == corpus.get_anagrams('dear')
+
+
+def test_when_all_words_get_removed_then_data_store_is_empty():
+    corpus = Corpus()
+    corpus.add_words(['read', 'dear'])
+    corpus.clear()
+    assert [] == corpus.get_anagrams('read')
