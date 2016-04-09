@@ -1,6 +1,3 @@
-from app.corpus import Corpus
-
-
 def test_when_requesting_anagram_and_no_words_are_in_corpus_then_get_back_empty_list(corpus):
     assert [] == corpus.get_anagrams('read')
 
