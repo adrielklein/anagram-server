@@ -22,3 +22,8 @@ def test_when_all_words_get_removed_then_data_store_is_empty(corpus):
     corpus.add_words(['read', 'dear'])
     corpus.clear()
     assert [] == corpus.get_anagrams('read')
+
+
+def test_when_duplicate_words_get_added_then_ignore_them(corpus):
+    corpus.add_words(['read', 'dear', 'dear'])
+    assert ['dear'] == corpus.get_anagrams('read')

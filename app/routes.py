@@ -2,19 +2,24 @@ from flask import request
 import json
 
 
-class RouteCreator(object):
-    def __init__(self, app, corpus):
-        self.app = app
-        self._corpus = corpus
+class AcknowledgeRoute(object):
+    method = 'GET'
+    path = '/'
+    endpoint = 'acknowledge_route'
 
-    def set_up_routes(self):
-        self.app.add_url_rule('/', 'acknowledge_route', self._acknowledge_route)
-        self.app.add_url_rule('/words.json', 'add_words_route', self._add_words_route, methods=['POST'])
-
-    def _acknowledge_route(self):
+    def handle(self):
         return 'OK'
 
-    def _add_words_route(self):
+
+class AddWordsRoute(object):
+    def __init__(self, corpus):
+        self._corpus = corpus
+
+    method = 'POST'
+    path = '/words.json'
+    endpoint = 'add_words_route'
+
+    def handle(self):
         words = json.loads(request.get_data().decode())['words']
         self._corpus.add_words(words)
         return '', 201
