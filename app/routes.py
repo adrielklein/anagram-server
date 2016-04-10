@@ -34,7 +34,8 @@ class AnagramsRoute(object):
     endpoint = 'anagrams_route'
 
     def handle(self, word):
-        result = {'anagrams': self._corpus.get_anagrams(word)}
+        limit = None if request.args.get('limit') is None else int(request.args.get('limit'))
+        result = {'anagrams': self._corpus.get_anagrams(word, limit)}
         return json.dumps(result)
 
 
