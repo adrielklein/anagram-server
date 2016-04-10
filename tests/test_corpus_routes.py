@@ -13,7 +13,7 @@ def test_when_add_words_route_is_hit_then_add_words_to_corpus(app, monkeypatch):
     Corpus.add_words.assert_called_with(['read', 'dear'])
 
 
-def test_when_delete_word_route_is_hit_then_remove_word_from_corpus(app, monkeypatch):
+def test_when_anagram_route_is_hit_then_get_anagrams(app, monkeypatch):
     monkeypatch.setattr(Corpus, "get_anagrams", Mock(return_value=[]))
     with app.test_client() as test_client:
         response = test_client.get('/anagrams/read.json')
