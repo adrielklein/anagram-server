@@ -1,5 +1,3 @@
-# Welcome to AnagramServer
-
 ## About
 AnagramServer is an http web server that finds anagrams of words.
 
