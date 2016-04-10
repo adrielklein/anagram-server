@@ -12,8 +12,11 @@ class Corpus(object):
 
     def get_anagrams(self, word, limit=None):
         alphagram = self._get_alphagram(word)
-        anagrams = [anagram for anagram in self._alphagram_to_words[alphagram] if anagram != word]
-        return anagrams if limit is None else anagrams[:limit]
+        anagrams = self._alphagram_to_words[alphagram]
+        if word not in anagrams:
+            return []
+        anagrams_without_query_word = [anagram for anagram in self._alphagram_to_words[alphagram] if anagram != word]
+        return anagrams_without_query_word[:limit]
 
     def remove_word(self, word):
         alphagram = self._get_alphagram(word)
