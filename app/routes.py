@@ -23,3 +23,16 @@ class AddWordsRoute(object):
         words = json.loads(request.get_data().decode())['words']
         self._corpus.add_words(words)
         return '', 201
+
+
+class AnagramsRoute(object):
+    def __init__(self, corpus):
+        self._corpus = corpus
+
+    method = 'GET'
+    path = '/anagrams/<word>.json'
+    endpoint = 'anagrams_route'
+
+    def handle(self, word):
+        result = {'anagrams': self._corpus.get_anagrams(word)}
+        return json.dumps(result)
