@@ -49,3 +49,16 @@ class DeleteWordRoute(object):
     def handle(self, word):
         self._corpus.remove_word(word)
         return 'OK'
+
+
+class DeleteAllWordsRoute(object):
+    def __init__(self, corpus):
+        self._corpus = corpus
+
+    method = 'DELETE'
+    path = '/words.json'
+    endpoint = 'delete_all_words_route'
+
+    def handle(self):
+        self._corpus.clear()
+        return 'OK', 204
