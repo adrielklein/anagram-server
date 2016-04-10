@@ -31,3 +31,8 @@ def test_when_duplicate_words_get_added_then_ignore_them(corpus):
 
 def test_when_removing_non_existant_word_then_do_nothing_and_do_not_error(corpus):
     corpus.remove_word('read')
+
+
+def test_when_limit_is_specified_for_maximum_number_of_anagrams_then_do_not_exceed_limit(corpus):
+    corpus.add_words(['read', 'dear'])
+    assert [] == corpus.get_anagrams('read', limit=0)
