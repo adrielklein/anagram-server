@@ -36,3 +36,16 @@ class AnagramsRoute(object):
     def handle(self, word):
         result = {'anagrams': self._corpus.get_anagrams(word)}
         return json.dumps(result)
+
+
+class DeleteWordRoute(object):
+    def __init__(self, corpus):
+        self._corpus = corpus
+
+    method = 'DELETE'
+    path = '/words/<word>.json'
+    endpoint = 'delete_word_route'
+
+    def handle(self, word):
+        self._corpus.remove_word(word)
+        return 'OK'

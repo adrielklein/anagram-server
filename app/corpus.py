@@ -17,7 +17,7 @@ class Corpus(object):
 
     def remove_word(self, word):
         alphagram = self._get_alphagram(word)
-        self._alphagram_to_words[alphagram].remove(word)
+        self._alphagram_to_words[alphagram].discard(word)
 
     def clear(self):
         self._alphagram_to_words.clear()

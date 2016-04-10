@@ -22,3 +22,12 @@ def test_when_anagram_route_is_hit_then_get_anagrams(app, monkeypatch):
         assert [] == json.loads(response_string)['anagrams']
 
     Corpus.get_anagrams.assert_called_with('read')
+
+
+def test_when_delete_word_route_is_hit_then_remove_word_from_corpus(app, monkeypatch):
+    monkeypatch.setattr(Corpus, "remove_word", Mock())
+    with app.test_client() as test_client:
+        response = test_client.delete('/words/read.json')
+        assert 200 == response.status_code
+
+    Corpus.remove_word.assert_called_with('read')
