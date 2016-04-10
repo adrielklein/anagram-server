@@ -1,6 +1,3 @@
-from app.corpus import Corpus
-
-
 def test_when_requesting_anagram_and_no_words_are_in_corpus_then_get_back_empty_list(corpus):
     assert [] == corpus.get_anagrams('read')
 
@@ -25,3 +22,12 @@ def test_when_all_words_get_removed_then_data_store_is_empty(corpus):
     corpus.add_words(['read', 'dear'])
     corpus.clear()
     assert [] == corpus.get_anagrams('read')
+
+
+def test_when_duplicate_words_get_added_then_ignore_them(corpus):
+    corpus.add_words(['read', 'dear', 'dear'])
+    assert ['dear'] == corpus.get_anagrams('read')
+
+
+def test_when_removing_non_existant_word_then_do_nothing_and_do_not_error(corpus):
+    corpus.remove_word('read')
