@@ -1,3 +1,5 @@
+[Build Status](https://travis-ci.org/adrielklein/anagram-server.svg?branch=master)
+
 ## About
 AnagramServer is an http web server that finds anagrams of words.
 
@@ -25,7 +27,7 @@ AnagramServer is an http web server that finds anagrams of words.
 ## How to run the tests
 - Run `python run_tests.py`
 
-## How does this work?
+## How does this thing work?
 
 The server is written in Python and uses [Flask](http://flask.pocoo.org/) to serve data.
 
