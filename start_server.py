@@ -4,4 +4,4 @@ PORT = 3000
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(port=PORT)
+    app.run(host='0.0.0.0', port=PORT)
