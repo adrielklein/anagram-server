@@ -33,4 +33,4 @@ The data store is an in-memory hash table where the key is an [alphagram](https:
 
 For example, the alphagram "dgo" maps to a set containing the words "dog" and "god".
 
-The hash table makes anagram lookups easy. To find an alphagram for a word the server simply finds it's alphagram, looks it up in the hash table, and returns the set.
+The hash table makes anagram lookups easy. To find an alphagram for a word the server simply finds its alphagram, looks it up in the hash table, and returns the set.
