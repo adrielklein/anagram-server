@@ -41,3 +41,12 @@ def test_when_limit_is_specified_for_maximum_number_of_anagrams_then_do_not_exce
 def test_when_requesting_anagrams_of_words_that_are_not_in_corpus_yet_then_return_nothing(corpus):
     corpus.add_words(['read'])
     assert [] == corpus.get_anagrams('dare')
+
+def test_when_stats_method_is_called_then_return_stats(corpus):
+    corpus.add_words(['it', 'dog', 'person'])
+    stats = corpus.get_stats()
+    assert 3 == stats['count']
+    assert 2 == stats['min_length']
+    assert 6 == stats['max_length']
+    assert 3 == stats['med_length']
+    assert 11/3 == stats['ave_length']

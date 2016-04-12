@@ -1,4 +1,5 @@
 from collections import defaultdict
+from statistics import median
 
 
 class Corpus(object):
@@ -24,6 +25,17 @@ class Corpus(object):
 
     def clear(self):
         self._alphagram_to_words.clear()
+
+    def get_stats(self):
+        word_lengths = []
+        for _, words in self._alphagram_to_words.items():
+            word_lengths += [len(word) for word in words]
+        stats = {'count': len(word_lengths),
+                 'min_length': min(word_lengths),
+                 'max_length': max(word_lengths),
+                 'med_length': median(word_lengths),
+                 'ave_length': sum(word_lengths)/len(word_lengths)}
+        return stats
 
     @classmethod
     def _get_alphagram(cls, word):

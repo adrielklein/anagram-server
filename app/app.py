@@ -1,5 +1,5 @@
 from app.corpus import Corpus
-from app.routes import AddWordsRoute, AcknowledgeRoute, AnagramsRoute, DeleteWordRoute, DeleteAllWordsRoute
+from app.routes import AddWordsRoute, AcknowledgeRoute, AnagramsRoute, DeleteWordRoute, DeleteAllWordsRoute, StatsRoute
 from flask import Flask
 
 
@@ -15,7 +15,8 @@ def create_app():
               AddWordsRoute(corpus),
               AnagramsRoute(corpus),
               DeleteWordRoute(corpus),
-              DeleteAllWordsRoute(corpus)]
+              DeleteAllWordsRoute(corpus),
+              StatsRoute(corpus)]
     _set_up_routes(routes, app)
 
     return app

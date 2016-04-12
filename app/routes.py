@@ -63,3 +63,16 @@ class DeleteAllWordsRoute(object):
     def handle(self):
         self._corpus.clear()
         return 'OK', 204
+
+
+class StatsRoute(object):
+    def __init__(self, corpus):
+        self._corpus = corpus
+
+    method = 'GET'
+    path = '/stats'
+    endpoint = 'stats_route'
+
+    def handle(self):
+        result = {'stats': self._corpus.get_stats()}
+        return json.dumps(result)
