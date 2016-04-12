@@ -11,13 +11,13 @@ class Corpus(object):
             alphagram = self._get_alphagram(word)
             self._alphagram_to_words[alphagram].add(word)
 
-    def get_anagrams(self, word, limit=None):
-        alphagram = self._get_alphagram(word)
-        anagrams = self._alphagram_to_words[alphagram]
-        if word not in anagrams:
+    def get_anagrams(self, query_word, limit=None):
+        alphagram = self._get_alphagram(query_word)
+        words_for_alphagram = self._alphagram_to_words[alphagram]
+        if query_word not in words_for_alphagram:
             return []
-        anagrams_without_query_word = [anagram for anagram in self._alphagram_to_words[alphagram] if anagram != word]
-        return anagrams_without_query_word[:limit]
+        anagrams = [word for word in words_for_alphagram if word != query_word]
+        return anagrams[:limit]
 
     def remove_word(self, word):
         alphagram = self._get_alphagram(word)
@@ -41,11 +41,15 @@ class Corpus(object):
         if len(self._alphagram_to_words) == 0:
             return {}
         num_words_to_alphagram = defaultdict(lambda: [])
+        max_num_anagrams = self._get_max_num_anagrams(num_words_to_alphagram)
+        alphagrams_with_most_anagrams = num_words_to_alphagram[max_num_anagrams]
+        return {alphagram: list(self._alphagram_to_words[alphagram]) for alphagram in alphagrams_with_most_anagrams}
+
+    def _get_max_num_anagrams(self, num_words_to_alphagram):
         for alphagram, words in self._alphagram_to_words.items():
             num_words_to_alphagram[len(words)].append(alphagram)
-        max_num_words = max(num_words_to_alphagram.keys())
-        alphagrams_with_most_anagrams = num_words_to_alphagram[max_num_words]
-        return {alphagram: list(self._alphagram_to_words[alphagram]) for alphagram in alphagrams_with_most_anagrams}
+        max_num_anagrams = max(num_words_to_alphagram.keys())
+        return max_num_anagrams
 
     @classmethod
     def _get_alphagram(cls, word):
