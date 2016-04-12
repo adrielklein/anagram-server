@@ -28,9 +28,9 @@ AnagramServer is an http web server that finds anagrams of words.
 ## How to run the tests
 - Run `python run_tests.py`
 
-## How does this thing work?
+## Implementation Details
 
-The server is written in Python and uses [Flask](http://flask.pocoo.org/) to serve data.
+The server is written in Python and uses [Flask](http://flask.pocoo.org/) as a web framework.
 
 The data store is an in-memory hash table where the key is an [alphagram](https://en.wikipedia.org/wiki/Alphagram) and the value is a set of words that map to that alphagram.
 
