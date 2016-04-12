@@ -4,7 +4,7 @@
 AnagramServer is a web server that finds anagrams of words. Not only that, but it provides an API to load words into the data store, remove them, and even show some cool statistics about the words themselves.
 
 
-## Routes
+### Routes
 - `GET /`: Returns "OK". Useful for testing.
 - `POST /words.json`: Takes a JSON array of words and adds them to the corpus (data store).
 - `GET /anagrams/:word.json`:
@@ -15,7 +15,7 @@ AnagramServer is a web server that finds anagrams of words. Not only that, but i
 - `GET /stats`:  Returns a JSON object specifying the count of words in the corpus and min/max/median/average word length
 - `GET /most`: Returns a JSON object that identifies alphagrams with the most anagrams in the corpus
 
-## Build Instructions
+### Build Instructions
 1. Download and install [Python 3.5](https://www.python.org/downloads/release/python-350/)
 1. Clone this repository to your machine
 1. Open a terminal and change into the root of the repository
@@ -24,17 +24,17 @@ AnagramServer is a web server that finds anagrams of words. Not only that, but i
 1. Activate the virtual environment `source venv/bin/activate`
 1. Install Dependencies `pip install -r requirements.txt`
 
-## Running the server
+### Running the server
 - Run `python start_server.py`
 
-## Running the tests
+### Running the tests
 - Run `python scripts/run_tests.py`
 
-## How to add the English dictionary to the corpus
+### Adding the English dictionary to the corpus
 1. Make sure the server is running
-1. Run `scripts/populate_corpus.py`
+1. Run `python scripts/populate_corpus.py`
 
-## Implementation Details
+### Implementation Details
 
 The server is written in Python and uses [Flask](http://flask.pocoo.org/) as a web framework.
 
