@@ -23,7 +23,7 @@ AnagramServer is an http web server that finds anagrams of words.
 1. Create a virtual environment `virtualenv venv`
 1. Activate the virtual environment `source venv/bin/activate`
 1. Install Dependencies `pip install -r requirements.txt`
-1. Run `python scripts/start_server.py`
+1. Run `python start_server.py`
 
 ## How to run the tests
 - Run `python scripts/run_tests.py`
