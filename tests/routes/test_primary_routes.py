@@ -1,7 +1,7 @@
+import json
 from unittest.mock import Mock
 
 from app.corpus import Corpus
-import json
 
 
 def test_when_add_words_route_is_hit_then_add_words_to_corpus(app, monkeypatch):

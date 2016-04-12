@@ -12,6 +12,8 @@ AnagramServer is an http web server that finds anagrams of words.
   - Supports an optional query param that indicates the maximum number of results to return.
 - `DELETE /words/:word.json`: Deletes a single word from the data store.
 - `DELETE /words.json`: Deletes all contents of the data store.
+- `GET /stats`:  Returns a JSON object specifying the count of words in the corpus and min/max/median/average word length
+- `GET /most`: Returns a JSON object that identifies alphagrams with the most anagrams in the corpus
 
 ## Build Instructions
 1. Download and install [Python 3.5](https://www.python.org/downloads/release/python-350/)

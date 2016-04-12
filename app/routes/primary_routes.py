@@ -2,15 +2,6 @@ from flask import request
 import json
 
 
-class AcknowledgeRoute(object):
-    method = 'GET'
-    path = '/'
-    endpoint = 'acknowledge_route'
-
-    def handle(self):
-        return 'OK'
-
-
 class AddWordsRoute(object):
     def __init__(self, corpus):
         self._corpus = corpus

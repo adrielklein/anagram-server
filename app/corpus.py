@@ -1,4 +1,5 @@
 from collections import defaultdict
+from statistics import median
 
 
 class Corpus(object):
@@ -24,6 +25,27 @@ class Corpus(object):
 
     def clear(self):
         self._alphagram_to_words.clear()
+
+    def get_stats(self):
+        word_lengths = []
+        for _, words in self._alphagram_to_words.items():
+            word_lengths += [len(word) for word in words]
+        stats = {'count': len(word_lengths),
+                 'min_length': min(word_lengths) if word_lengths else 0,
+                 'max_length': max(word_lengths) if word_lengths else 0,
+                 'med_length': median(word_lengths) if word_lengths else 0,
+                 'ave_length': sum(word_lengths) / len(word_lengths) if word_lengths else 0}
+        return stats
+
+    def get_most_anagrams(self):
+        if len(self._alphagram_to_words) == 0:
+            return {}
+        num_words_to_alphagram = defaultdict(lambda: [])
+        for alphagram, words in self._alphagram_to_words.items():
+            num_words_to_alphagram[len(words)].append(alphagram)
+        max_num_words = max(num_words_to_alphagram.keys())
+        alphagrams_with_most_anagrams = num_words_to_alphagram[max_num_words]
+        return {alphagram: list(self._alphagram_to_words[alphagram]) for alphagram in alphagrams_with_most_anagrams}
 
     @classmethod
     def _get_alphagram(cls, word):
