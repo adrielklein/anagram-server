@@ -40,16 +40,16 @@ class Corpus(object):
     def get_most_anagrams(self):
         if len(self._alphagram_to_words) == 0:
             return {}
-        num_words_to_alphagram = defaultdict(lambda: [])
-        max_num_anagrams = self._get_max_num_anagrams(num_words_to_alphagram)
+        num_words_to_alphagram = self._get_num_words_to_alphagram()
+        max_num_anagrams = max(num_words_to_alphagram.keys())
         alphagrams_with_most_anagrams = num_words_to_alphagram[max_num_anagrams]
         return {alphagram: list(self._alphagram_to_words[alphagram]) for alphagram in alphagrams_with_most_anagrams}
 
-    def _get_max_num_anagrams(self, num_words_to_alphagram):
+    def _get_num_words_to_alphagram(self):
+        num_words_to_alphagram = defaultdict(lambda: [])
         for alphagram, words in self._alphagram_to_words.items():
             num_words_to_alphagram[len(words)].append(alphagram)
-        max_num_anagrams = max(num_words_to_alphagram.keys())
-        return max_num_anagrams
+        return num_words_to_alphagram
 
     @classmethod
     def _get_alphagram(cls, word):
