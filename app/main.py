@@ -1,7 +1,11 @@
-from app.corpus import Corpus
-from app.routes import AddWordsRoute, AcknowledgeRoute, AnagramsRoute, DeleteWordRoute, DeleteAllWordsRoute, StatsRoute, \
-    MostAnagramsRoute
 from flask import Flask
+
+from app.corpus import Corpus
+from app.routes.acknowledge_route import AcknowledgeRoute
+from app.routes.primary_routes import AddWordsRoute, DeleteWordRoute, DeleteAllWordsRoute
+from app.routes.primary_routes import AnagramsRoute
+from app.routes.statistical_routes import MostAnagramsRoute
+from app.routes.statistical_routes import StatsRoute
 
 
 def _set_up_routes(routes, app):
