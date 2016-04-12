@@ -29,7 +29,7 @@ AnagramServer is an http web server that finds anagrams of words.
 - Run `python scripts/run_tests.py`
 
 ## How to add the English dictionary to the corpus
-1. Start the server
+1. Make sure the server is running
 1. Run `scrips/populate_corpus.py`
 
 ## Implementation Details
