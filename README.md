@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/adrielklein/anagram-server.svg?branch=master)](https://travis-ci.org/adrielklein/anagram-server)
 
-## About
-AnagramServer is an http web server that finds anagrams of words.
+## Welcome to AnagramServer
+AnagramServer is a web server that finds anagrams of words. Not only that, but it provides an API to load words into the data store, remove them, and even show some cool statistics about the words themselves.
 
 
 ## Routes
