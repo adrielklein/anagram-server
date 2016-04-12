@@ -15,7 +15,7 @@ AnagramServer is a web server that finds anagrams of words. Not only that, but i
 - `GET /stats`:  Returns a JSON object specifying the count of words in the corpus and min/max/median/average word length
 - `GET /most`: Returns a JSON object that identifies alphagrams with the most anagrams in the corpus
 
-## How to start the server
+## Build Instructions
 1. Download and install [Python 3.5](https://www.python.org/downloads/release/python-350/)
 1. Clone this repository to your machine
 1. Open a terminal and change into the root of the repository
@@ -23,9 +23,11 @@ AnagramServer is a web server that finds anagrams of words. Not only that, but i
 1. Create a virtual environment `virtualenv venv`
 1. Activate the virtual environment `source venv/bin/activate`
 1. Install Dependencies `pip install -r requirements.txt`
-1. Run `python start_server.py`
 
-## How to run the tests
+## Running the server
+- Run `python start_server.py`
+
+## Running the tests
 - Run `python scripts/run_tests.py`
 
 ## How to add the English dictionary to the corpus
