@@ -23,10 +23,14 @@ AnagramServer is an http web server that finds anagrams of words.
 1. Install Dependencies `pip install -r requirements.txt`
 
 ## How to start the server
-- Run `python start_server.py`
+- Run `python scripts/start_server.py`
 
 ## How to run the tests
-- Run `python run_tests.py`
+- Run `python scripts/run_tests.py`
+
+## How to add the English dictionary to the corpus
+1. Start the server
+1. Run `scrips/populate_corpus.py`
 
 ## Implementation Details
 
