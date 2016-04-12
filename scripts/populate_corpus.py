@@ -1,7 +1,8 @@
-import requests as requests
 import json
 
-from scripts.start_server import PORT
+import requests as requests
+
+from start_server import PORT
 
 if __name__ == '__main__':
     words = []
