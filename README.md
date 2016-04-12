@@ -13,7 +13,7 @@ AnagramServer is a web server that provides an API to load words into a data sto
 - `DELETE /words/:word.json`: Deletes a single word from the data store.
 - `DELETE /words.json`: Deletes all contents of the data store.
 - `GET /stats`:  Returns a JSON object specifying the count of words in the corpus and min/max/median/average word length
-- `GET /most`: Returns a JSON object that identifies alphagrams with the most anagrams in the corpus
+- `GET /most`: Returns a JSON object that identifies [alphagrams](https://en.wikipedia.org/wiki/Alphagram) in the corpus with the most anagrams
 
 ### Build Instructions
 1. Download and install [Python 3.5](https://www.python.org/downloads/release/python-350/)
@@ -38,7 +38,7 @@ AnagramServer is a web server that provides an API to load words into a data sto
 
 The server is written in Python and uses [Flask](http://flask.pocoo.org/) as a web framework.
 
-The data store is an in-memory hash table where the key is an [alphagram](https://en.wikipedia.org/wiki/Alphagram) and the value is a set of words that map to that alphagram.
+The data store is an in-memory hash table where the key is an alphagram and the value is a set of words that map to that alphagram.
 
 For example, the alphagram "dgo" maps to a set containing the words "dog" and "god".
 
