@@ -10,3 +10,5 @@ deploy:
   on:
     all_branches: true
   app: anagram-finder-app
+notifications:
+  email: false
