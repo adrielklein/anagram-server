@@ -1,7 +1,9 @@
+import os
+
 from flask import Flask
 
 from app.corpus import Corpus
-from app.routes.acknowledge_route import AcknowledgeRoute
+from app.routes.front_end_route import FrontEndRoute
 from app.routes.primary_routes import AddWordsRoute, DeleteWordRoute, DeleteAllWordsRoute
 from app.routes.primary_routes import AnagramsRoute
 from app.routes.statistical_routes import MostAnagramsRoute
@@ -13,10 +15,10 @@ def _set_up_routes(routes, app):
         app.add_url_rule(route.path, route.endpoint, route.handle, methods=[route.method])
 
 
-def create_app():
+def create_app(words):
     app = Flask(__name__)
-    corpus = Corpus()
-    routes = [AcknowledgeRoute(),
+    corpus = Corpus(words)
+    routes = [FrontEndRoute(),
               AddWordsRoute(corpus),
               AnagramsRoute(corpus),
               DeleteWordRoute(corpus),
