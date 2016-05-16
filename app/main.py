@@ -15,17 +15,9 @@ def _set_up_routes(routes, app):
         app.add_url_rule(route.path, route.endpoint, route.handle, methods=[route.method])
 
 
-def _get_words():
-    result = []
-    with open('app/words.txt') as file:
-        for word in file:
-            result.append(word.strip())
-    return result
-
-
-def create_app():
+def create_app(words):
     app = Flask(__name__)
-    corpus = Corpus(_get_words())
+    corpus = Corpus(words)
     routes = [FrontEndRoute(),
               AddWordsRoute(corpus),
               AnagramsRoute(corpus),
