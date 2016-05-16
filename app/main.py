@@ -1,13 +1,10 @@
-import os
-
-from flask import Flask
-
 from app.corpus import Corpus
 from app.routes.front_end_route import FrontEndRoute
 from app.routes.primary_routes import AddWordsRoute, DeleteWordRoute, DeleteAllWordsRoute
 from app.routes.primary_routes import AnagramsRoute
 from app.routes.statistical_routes import MostAnagramsRoute
 from app.routes.statistical_routes import StatsRoute
+from flask import Flask
 
 
 def _set_up_routes(routes, app):
