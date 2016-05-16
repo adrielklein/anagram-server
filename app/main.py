@@ -1,7 +1,7 @@
 from flask import Flask
 
 from app.corpus import Corpus
-from app.routes.acknowledge_route import AcknowledgeRoute
+from app.routes.front_end_route import FrontEndRoute
 from app.routes.primary_routes import AddWordsRoute, DeleteWordRoute, DeleteAllWordsRoute
 from app.routes.primary_routes import AnagramsRoute
 from app.routes.statistical_routes import MostAnagramsRoute
@@ -16,7 +16,7 @@ def _set_up_routes(routes, app):
 def create_app():
     app = Flask(__name__)
     corpus = Corpus()
-    routes = [AcknowledgeRoute(),
+    routes = [FrontEndRoute(),
               AddWordsRoute(corpus),
               AnagramsRoute(corpus),
               DeleteWordRoute(corpus),
