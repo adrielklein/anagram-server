@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 
 from app.corpus import Corpus
@@ -13,9 +15,18 @@ def _set_up_routes(routes, app):
         app.add_url_rule(route.path, route.endpoint, route.handle, methods=[route.method])
 
 
+class WordStore(object):
+    def get_words(self):
+        result = []
+        with open('app/words.txt') as file:
+            for word in file:
+                result.append(word.strip())
+        return result
+
+
 def create_app():
     app = Flask(__name__)
-    corpus = Corpus()
+    corpus = Corpus(WordStore().get_words())
     routes = [FrontEndRoute(),
               AddWordsRoute(corpus),
               AnagramsRoute(corpus),

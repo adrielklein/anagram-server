@@ -3,8 +3,9 @@ from statistics import median
 
 
 class Corpus(object):
-    def __init__(self):
+    def __init__(self, words=None):
         self._alphagram_to_words = defaultdict(lambda: set())
+        self.add_words(words or [])
 
     def add_words(self, words):
         for word in words:
