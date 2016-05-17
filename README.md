@@ -5,7 +5,7 @@ AnagramServer is a web server that provides an API to load words into a data sto
 
 
 ### Routes
-- `GET /`: Returns "OK". Useful for testing.
+- `GET /`: Returns HTML. This is the main route for interacting with the application.
 - `POST /words.json`: Takes a JSON array of words and adds them to the corpus (data store).
 - `GET /anagrams/:word.json`:
   - Returns a JSON array words that are anagrams of the word passed in the URL.
