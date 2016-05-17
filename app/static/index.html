@@ -5,34 +5,13 @@
     <title>Anagram Finder</title>
 </head>
 <body>
+<h1>Anagram Finder</h1>
 Word:<input type="text" id="word" value="">
-<button onclick="myFunction()">Get Anagrams</button>
+<button onclick="showAnagrams()">Get Anagrams</button>
 
 <p id="resulting-anagrams"></p>
 
-<script>
-function myFunction() {
-    var word = document.getElementById("word").value;
-    if (word == ""){
-        document.getElementById("resulting-anagrams").innerHTML = "";
-        return;
-    }
-    var url = "/anagrams/" + word + ".json";
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = processRequest;
-
-    function processRequest(e) {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var anagrams = JSON.parse(xhr.responseText)["anagrams"];
-        document.getElementById("resulting-anagrams").innerHTML = anagrams;
-        }
-    };
-
-    xhr.open("GET", url, true);
-    xhr.send();
-}
-
+<script src="word_retriever.js">
 </script>
 
 </body>
