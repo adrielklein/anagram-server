@@ -13,11 +13,12 @@ class Corpus(object):
             self._alphagram_to_words[alphagram].add(word)
 
     def get_anagrams(self, query_word, limit=None):
-        alphagram = self._get_alphagram(query_word)
+        lowercase_query_word = query_word.lower()
+        alphagram = self._get_alphagram(lowercase_query_word)
         words_for_alphagram = self._alphagram_to_words[alphagram]
-        if query_word not in words_for_alphagram:
+        if lowercase_query_word not in words_for_alphagram:
             return []
-        anagrams = [word for word in words_for_alphagram if word != query_word]
+        anagrams = [word for word in words_for_alphagram if word != lowercase_query_word]
         return anagrams[:limit]
 
     def remove_word(self, word):

@@ -7,6 +7,11 @@ def test_when_requesting_anagram_of_read_then_get_dear(corpus):
     assert ['dear'] == corpus.get_anagrams('read')
 
 
+def test_when_requesting_anagram_of_uppercase_read_then_get_dear(corpus):
+    corpus.add_words(['read', 'dear'])
+    assert ['dear'] == corpus.get_anagrams('Read')
+
+
 def test_when_requesting_anagram_of_dear_then_get_read(corpus):
     corpus.add_words(['read', 'dear'])
     assert ['read'] == corpus.get_anagrams('dear')
