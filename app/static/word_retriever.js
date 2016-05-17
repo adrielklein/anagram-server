@@ -14,7 +14,11 @@ function showAnagrams() {
     function processRequest(e) {
     if (xhr.readyState == 4 && xhr.status == 200) {
         var anagrams = JSON.parse(xhr.responseText)["anagrams"];
-        displayResults(anagrams);
+        if (anagrams.length == 0){
+            displayResults('No anagrams for ' + word + '.');
+        } else {
+            displayResults('Anagrams: ' + anagrams);
+        }
         }
     }
 }
