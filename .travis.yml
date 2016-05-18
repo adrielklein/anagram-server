@@ -14,12 +14,3 @@ notifications:
 sudo: required
 services:
   - docker
-
-before_install:
-- docker build -t adrielklein/anagram-server .
-- docker run -d -p 127.0.0.1:80:4567 adrielklein/anagram-server /bin/sh -c "cd /root/anagram-server; bundle exec foreman start;"
-- docker ps -a
-- docker run adrielklein/anagram-server /bin/sh -c "cd /root/anagram-server; bundle exec rake test"
-
-script:
-- bundle exec rake test
