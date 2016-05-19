@@ -1,9 +1,41 @@
 body {
     background: url(/static/img/background.png) repeat 0 0;
+    margin-bottom: 60px;
 }
 
 .list-of-anagrams{
     width:75px;
     margin:0 auto;
     text-align:center;
+}
+
+header {
+    background-color:black;
+    padding:5px;
+    height: 35px;
+}
+html
+{
+	min-height: 100%;
+	position: relative;
+}
+
+.footer
+{
+	background-color: black;
+	bottom: 0;
+	height: 60px;
+	position: absolute;
+	width: 100%;
+}
+.container
+{
+	max-width: 680px;
+	padding: 0 15px;
+	width: auto;
+}
+.container .text-muted
+{
+	margin: 20px 0;
+	text-align:center;
 }
