@@ -1,0 +1,9 @@
+body {
+    background: url(/static/img/background.png) repeat 0 0;
+}
+
+.list-of-anagrams{
+    width:75px;
+    margin:0 auto;
+    text-align:center;
+}

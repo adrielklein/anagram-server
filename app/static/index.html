@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
     <script src="word_retriever.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>Anagram Finder</title>
 </head>
 <body>
-<div class="container">
+<div class="text-center">
     <h1>Anagram Finder</h1>
-    Word:<input type="text" id="word" value="">
+    <input type="text" id="word" value="">
     <button onclick="showAnagrams()">Get Anagrams</button>
 
-    <p id="resulting-anagrams"></p>
+    <p id="message"></p>
+    <p id="list-of-anagrams" class="list-of-anagrams"></p>
 </div>
 </body>
 </html>
